@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 import './style.css'
 
 function Select(props){
-  const [optionvalues,setOtionvalues] = useState('')
-  
    
       var aVal = JSON.stringify(props.option.results)
       aVal = aVal.split('},"')

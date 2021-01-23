@@ -17,7 +17,6 @@ function App(){
 
  const [dispayto,setDispayto] = useState('')
  const [dispayfor,setDispayfor] = useState('')
- const [countries,setountries] = useState([])
  const [value,setValue] = useState('')
  const key = '32826f3a596ab82e3d51'
 
