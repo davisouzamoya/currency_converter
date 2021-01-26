@@ -10,7 +10,7 @@ fieldset{
 
 .content{
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   margin-top: 70px;
 }
@@ -71,3 +71,40 @@ fieldset .footer{
   margin-top:15px
 }
 
+@media screen and ( max-width: 360px ){
+  fieldset{
+    background-color: rgba(24, 24, 24, 0.856);
+    margin: 50% 0% 0% 2.5%;
+    height: 350px;
+    width: 300px;
+    border-radius: 15px;
+  }
+
+  .content{
+    display:grid;
+    grid-gap: 12px;
+    align-items: center;
+    margin: 30px 10px 20px 10px;
+  }
+
+  button{
+    width: 95%;
+  }
+
+   button:hover {
+    width: 95%;
+  }
+
+  input{
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  fieldset .footer{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    color: white;
+    margin-top:15px
+  }
+}

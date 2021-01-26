@@ -21,7 +21,6 @@ function App(){
  const key = '32826f3a596ab82e3d51'
 
   useEffect(() =>{ 
-    debugger
     async function getCountries(){
       try{
         let response = await api.get(`/api/v7/countries?apiKey=${key}`)
