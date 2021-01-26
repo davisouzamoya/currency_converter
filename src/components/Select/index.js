@@ -18,7 +18,21 @@ function Select(props){
         }
           City.push(JSON.parse(auxilixar))
       }
-   
+
+      var sorted = City.sort(function(a, b){
+      var aa = a.currencyName.toLowerCase();
+      var bb = b.currencyName.toLowerCase(); 
+        if(aa < bb) return -1;
+        if(aa > bb) return 1;
+        return 0;
+      });
+
+      sorted = sorted.filter((thing, index, self) =>
+      index === self.findIndex((t) => (
+        t.currencyName === thing.currencyName
+      ))
+    )
+
   return(
     <select 
       name={props.name} 
@@ -27,7 +41,7 @@ function Select(props){
       onChange={props.onChange}
       >
       <option value="" disabled  hidden>Selecione uma opção</option>
-      {City.map((data,index) =>(
+      {sorted.map((data,index) =>(
         <option 
           key={data.id} 
           value={data.currencyId}
@@ -35,6 +49,7 @@ function Select(props){
           {data.currencyName} ({data.currencyId})
         </option>
       ))}
+
     </select>
   )
 }

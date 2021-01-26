@@ -33,27 +33,6 @@ function App(){
       getCountries();
     },[])
 
-    
-      // if(value){    
-      //   var aVal = JSON.stringify(value.results)
-      //   aVal = aVal.split('},"')
-      //   var auxilixar
-      //   var City = []
-      //   for(var i = 0; i < aVal.length;i++){
-      //     auxilixar = aVal[i].split('":{')[1].replace('""','"')
-          
-      //     if(auxilixar.indexOf("}}") > -1){
-      //       auxilixar = auxilixar.split("}}")[0]
-      //       auxilixar = '{'+auxilixar+'}'
-      //     }else{
-      //       auxilixar = '{'+auxilixar+'}'
-      //     }
-      //       City.push(JSON.parse(auxilixar))
-      //   }
-      // }
-
-  
-    
   async function actionConvert(){ 
       if(selectfirst && firstValue && selectsecond){
         const response = await api.get(`/api/v7/convert?q=${selectfirst}_${selectsecond}&compact=ultra&apiKey=${key}`);
@@ -76,17 +55,16 @@ function App(){
       setselectsecond(selectfirst)
       setSelectfirst(selectsecond)
 
-      actionConvert()
+      if(selectfirst && firstValue && selectsecond)  actionConvert()
+      
     }else{
       alert('Informar a moeda para conversao')
     }
   }
 
-  
   return(
     <>
       <Header/>
-      
         <fieldset>
           <div className='content'>
               <NumberFormat 
@@ -129,9 +107,8 @@ function App(){
                 }
               </div>
           </fieldset>
-         
     </>
   )
+}
 
-  }
 export default App

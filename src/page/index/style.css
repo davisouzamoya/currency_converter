@@ -1,14 +1,12 @@
-
-
 fieldset{
-  position: absolute;
-  top: 40%;
-  left: 8%;
   border: 0px;
-  height: 200px;
-  border-radius: 15px;
   background-color: rgba(24, 24, 24, 0.856);
+  height: 200px;
+  width: 74%;
+  border-radius: 15px;
+  margin: 22.5% 12% 10% 12%;
 }
+
 
 .content{
   display: flex;
@@ -16,7 +14,6 @@ fieldset{
   align-items: center;
   margin-top: 70px;
 }
-
 
 svg{
   cursor: pointer;
@@ -35,8 +32,7 @@ input{
 
 input + select,
 select + button,
-button + select
-{
+button + select{
   margin-left: 15px;
 } 
 
@@ -74,3 +70,4 @@ fieldset .footer{
   color: white;
   margin-top:15px
 }
+
