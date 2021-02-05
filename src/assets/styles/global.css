@@ -15,4 +15,5 @@ body{
   background-image:url("../images/fundo_pagina.jpg");
   background-position: center top;
   background-attachment: fixed;
+  background-size: cover;
 }
