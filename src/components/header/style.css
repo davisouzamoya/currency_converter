@@ -25,3 +25,15 @@
     width: 100%; 
   }
 }
+
+@media (max-width: 767px) {
+  /* .pages-header{
+    background-color: rgba(24, 24, 24, 0.856);
+    position: fixed; 
+    top:0;
+    left: 0;
+    right: 0; 
+    height: 86px;
+    width: 100%; 
+  } */
+}

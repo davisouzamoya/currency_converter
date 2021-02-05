@@ -7,9 +7,24 @@ select{
   width: 250px;
   padding: 0 0 0 12px;
   outline: none;
-  
-  
-  
+}
+
+@media ( max-width: 1040px){
+  select{
+    width: 180px;
+  }
+}
+
+@media ( max-width: 800px){
+  select{
+    width: 150px;
+  }
+}
+
+@media ( max-width: 700px){
+  select{
+    width: 60vw;
+  }
 }
 
 

@@ -14,5 +14,5 @@ body,input,button{
 body{
   background-image:url("../images/fundo_pagina.jpg");
   background-position: center top;
-  background-size: 100% auto;
+  background-attachment: fixed;
 }
