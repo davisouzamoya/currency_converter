@@ -4,7 +4,6 @@ import Select from '../../components/Select'
 import Header from '../../components/header'
 import { BiTransfer } from 'react-icons/bi';
 import NumberFormat from 'react-currency-format';
-
 import '../../assets/styles/global.css'
 import './style.css'
 
@@ -18,12 +17,12 @@ function App(){
  const [dispayto,setDispayto] = useState('')
  const [dispayfor,setDispayfor] = useState('')
  const [value,setValue] = useState('')
- const key = '32826f3a596ab82e3d51'
 
   useEffect(() =>{ 
     async function getCountries(){
       try{
-        let response = await api.get(`/api/v7/countries?apiKey=${key}`)
+        let response = await api.get(`/api/v7/countries`,{
+        })
         setValue(response.data)
       }catch(error){
         console.log('Ocorreu um erro')
@@ -34,7 +33,7 @@ function App(){
 
   async function actionConvert(){ 
       if(selectfirst && firstValue && selectsecond){
-        const response = await api.get(`/api/v7/convert?q=${selectfirst}_${selectsecond}&compact=ultra&apiKey=${key}`);
+        const response = await api.get(`/api/v7/convert?q=${selectfirst}_${selectsecond}&compact=ultra`);
         var valorConversao = JSON.stringify(response.data)
         valorConversao = valorConversao.split(':')[1].replace('}','')
         let result = parseFloat(firstValue) * parseFloat(valorConversao)
@@ -64,48 +63,53 @@ function App(){
   return(
     <>
       <Header/>
-        <fieldset>
+      {value &&
+      <fieldset>
           <div className='content'>
-              <NumberFormat 
-                thousandSeparator={true} 
-                className="some" 
-                inputmode="numeric" 
-                thousandSpacing='2'
-                id='valorDe'
-                value={firstValue}
-                onChange={(e) => {setFirstValue(e.target.value)}}
-              />
-              {value && <Select 
-                  name="valueDe" 
-                  id="valueDe" 
-                  option={value}
-                  value={selectfirst}
-                  onChange={(e) => {setSelectfirst(e.target.value)}}
-                />}
+               <NumberFormat 
+                 thousandSeparator={true} 
+                 className="some" 
+                 inputmode="numeric" 
+                 thousandSpacing='2'
+                 id='valorDe'
+                 value={firstValue}
+                 onChange={(e) => {setFirstValue(e.target.value)}}
+               />
+               {value &&  
+                <Select 
+                   name="valueDe" 
+                   id="valueDe" 
+                   option={value}
+                   value={selectfirst}
+                   onChange={(e) => {setSelectfirst(e.target.value)}}
+                 />
+                }
+                 <button onClick={() => changeCoin()}>
+                   <BiTransfer size={30} />
+                 </button>     
               
-                <button onClick={() => changeCoin()}>
-                  <BiTransfer size={30} />
-                </button>     
-              
-              {value && <Select 
-                  name="valuePara" 
-                  id="valuePara"
-                  option={value}
-                  value={selectsecond}
-                  onChange={(e) => {setselectsecond(e.target.value)}}
-                />}
-              <button 
-                onClick={() =>actionConvert()}
-              >
-                CONVERTER
-              </button>
-            </div>
+               {value &&  
+               <Select  
+                   name="valuePara" 
+                   id="valuePara"
+                   option={value}
+                   value={selectsecond}
+                   onChange={(e) => {setselectsecond(e.target.value)}}
+                 />} 
+                 
+               <button  
+                 onClick={() =>actionConvert()}
+               >
+                 CONVERTER
+               </button> 
+             </div> 
             <div className="footer">  
                 {secondValue &&
                   <h2>{displayValue} {dispayto} = {secondValue} {dispayfor}</h2>
                 }
               </div>
           </fieldset>
+        }
     </>
   )
 }

@@ -9,6 +9,14 @@ fieldset{
   left: 8%;
 }
 
+.error{
+  position: fixed;
+  margin-top:205px;
+  left: 8%;
+  border-radius: 15px;
+  height:210px;
+  width:1050px;
+}
 
 .content{
   display: flex;
